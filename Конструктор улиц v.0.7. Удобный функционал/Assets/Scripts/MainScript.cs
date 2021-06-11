@@ -208,14 +208,6 @@ public class MainScript : MonoBehaviour
         GameObject result = assetLoaderContext.RootGameObject;
         return result;
     }
-    GameObject Load3dObjectByPathViaLoader3DS(string path)
-    {
-        GameObject result = new GameObject();
-        Loader3DS loader3DS = result.AddComponent<Loader3DS>();
-        loader3DS.Load(path);
-        Destroy(loader3DS);
-        return result;
-    }
     public void LoadEverything()
     {
         StartCoroutine(LoadEverythingCoroutine());
