@@ -53,7 +53,7 @@ public class RoadEditor : MonoBehaviour
         number++;
         BuildRoad(startPosition,endPosition, Convert.ToInt32(width), Convert.ToInt32(hight), number.ToString());
     }
-    public void BuildRoad(Vector3 realStartPosition, Vector3 realEndPosition, int width = 1, int hight = 1, string name = "") 
+    public void BuildRoad(Vector3 realStartPosition, Vector3 realEndPosition, float width = 1f, float hight = 1f, string name = "") 
     {
         GameObject temp = Instantiate(roadPrefab, transform);
         temp.name = name;

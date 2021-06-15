@@ -130,8 +130,8 @@ public class GroundEditor : MonoBehaviour
                     (bounds.x * item.EndPosition.x / sizeX),
                     MapController.instance.abstractMap.QueryElevationInUnityUnitsAt(MapController.instance.abstractMap.WorldToGeoPosition(new Vector3(bounds.x * item.EndPosition.x / sizeX, 0, bounds.y * item.EndPosition.y / sizeY))),
                     bounds.y * item.EndPosition.y / sizeY)),
-                Convert.ToInt32(width.text),
-                Convert.ToInt32(height.text));
+                Convert.ToSingle(width.text),
+                Convert.ToSingle(height.text));
         }
 
         MapController.instance.abstractMap.gameObject.transform.localScale = new Vector3(tempScaleX, tempScaleY, tempScaleX);

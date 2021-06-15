@@ -27,7 +27,8 @@ public class Road : MonoBehaviour
         transform.position = startPosition;
 
         float length = Vector3.Distance(startPosition, endPosition);
-        float deltaLength = (length / RoadEditor.CountOfRoadComponents) + (length / RoadEditor.CountOfRoadComponents)/2;
+        float deltaLength = (length / RoadEditor.CountOfRoadComponents);
+        float elementLength = deltaLength*1.5f;
 
         while (Vector3.Distance(startPosition, endPosition) > 0)//создание дороги
         {
@@ -35,7 +36,7 @@ public class Road : MonoBehaviour
             
             temp.transform.position =
                 new Vector3(temp.transform.position.x,
-                MapController.instance.abstractMap.QueryElevationInUnityUnitsAt(MapController.instance.abstractMap.WorldToGeoPosition(new Vector3(temp.transform.position.x, 0, temp.transform.position.z))) /*/ MapController.instance.abstractMap.transform.localScale.x*/,
+                MapController.instance.abstractMap.QueryElevationInUnityUnitsAt(MapController.instance.abstractMap.WorldToGeoPosition(new Vector3(temp.transform.position.x, 0, temp.transform.position.z))),
                 temp.transform.position.z);
 
             lookAtPosition = Vector3.MoveTowards(startPosition, endPosition, deltaLength);
@@ -46,10 +47,10 @@ public class Road : MonoBehaviour
                 new Vector3(width/2,0,0),
                 new Vector3(width/2,_hight,0),
                 new Vector3(-width/2,_hight,0),
-                new Vector3(-width/2,_hight,deltaLength),
-                new Vector3(width/2,_hight,deltaLength),
-                new Vector3(width/2,0,deltaLength),
-                new Vector3(-width/2,0,deltaLength),
+                new Vector3(-width/2,_hight,elementLength),
+                new Vector3(width/2,_hight,elementLength),
+                new Vector3(width/2,0,elementLength),
+                new Vector3(-width/2,0,elementLength),
             };
 
             int[] triangles = new int[]

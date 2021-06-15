@@ -66,14 +66,14 @@ namespace MyOwnClass
     {
         public SerializableVector3 startPosition;
         public SerializableVector3 endPosition;
-        public int width;
-        public int hight;
+        public float width;
+        public float hight;
         public string name;
         public SerializableRoad() 
         {
         
         }
-        public SerializableRoad(Vector3 startPosition, Vector3 endPosition, int width, int hight, string name) 
+        public SerializableRoad(Vector3 startPosition, Vector3 endPosition, float width, float hight, string name) 
         {
             this.startPosition = new SerializableVector3(startPosition);
             this.endPosition = new SerializableVector3(endPosition);
