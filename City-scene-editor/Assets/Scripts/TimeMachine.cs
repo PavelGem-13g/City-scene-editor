@@ -14,40 +14,29 @@ using UnityEngine.UI;
 
 public class TimeMachine : MonoBehaviour
 {
+    public static TimeMachine instance;
     string path;
     public TextMeshProUGUI sliderValue;
     public GameObject person;
-    public static MainScript instance;
-
-    [SerializeField] GameObject Спасоглинищевский9;
-    [SerializeField] GameObject Лубянский15с2;
-    [SerializeField] GameObject Лубянский19с1;
-    [SerializeField] GameObject Лубянский21с5;
-    [SerializeField] GameObject Лубянский25с2;
-    [SerializeField] GameObject Лубянский271с1;
-    [SerializeField] GameObject Маросейка215с1;
-    [SerializeField] GameObject Маросейка42с1;
-    [SerializeField] GameObject Маросейка68с1;
-    [SerializeField] GameObject Маросейка8;
-    [SerializeField] GameObject Покровский1610с1;
-    [SerializeField] GameObject Покровский1815;
-    [SerializeField] GameObject Покровский1618с44А;
-    [SerializeField] GameObject Яузский10с2;
-    [SerializeField] GameObject Спасоглинищевский3с1;
-    [SerializeField] GameObject Спасоглинищевский91с10;
-    [SerializeField] GameObject Спасоглинищевский91с16;
-    [SerializeField] GameObject Спасоглинищевский12с5;
 
     int ExYear;
     string pathtoexcel;
     string ExName;
     float ExShirota;
     float ExDolgota;
+    float ExMaterial;
+    public List<House> Houses = new List<House>();
 
-    [SerializeField] List<House> Buildings = new List<House>();
+    public Material one;
+    public Material two;
+    public Material three;
+    public Material four;
+    public Material five;
+    public Material six;
+    public Material seven;
     public void OK()
     {
-        House house = Спасоглинищевский9.AddComponent<House>();
+/*        House house = Спасоглинищевский9.AddComponent<House>();
         house.Init(Vector3.zero, "Большой Спасоглинищевский пер, 91с7");
         house.gameObject.SetActive(false);
         Buildings.Add(house); //0
@@ -56,7 +45,7 @@ public class TimeMachine : MonoBehaviour
         house1.Init(Vector3.zero, "Лубянский проезд, 15с2-4");
         house1.gameObject.SetActive(false);
         Buildings.Add(house1);
-        AddToChange(Лубянский15с2); //1
+        AddToChange(Лубянский15с2); //1*/
 
         //house = Лубянский19с1.AddComponent<House>();
         //house.Init(1860, Vector3.zero, "Лубянский проезд, 19с1");
@@ -158,9 +147,10 @@ public class TimeMachine : MonoBehaviour
     }
     public void Awake()
     {
-        Buildings.Clear();
-        Спасоглинищевский9 = MainScript.Load3dObjectByPathViaTriLib(@"C:\Users\79100\Downloads\City-scene-editor-main\3D_sorces\fbx\Большой Спасоглинищевский пер, 91с7.fbx");
-        Лубянский15с2 = MainScript.Load3dObjectByPathViaTriLib(@"C:\Users\79100\Downloads\City-scene-editor-main\3D_sorces\fbx\Лубянский проезд, 15с2.obj");
+        instance = this;
+        //Buildings.Clear();
+        //Спасоглинищевский9 = MainScript.Load3dObjectByPathViaTriLib(@"C:\Users\79100\Downloads\City-scene-editor-main\3D_sorces\fbx\Большой Спасоглинищевский пер, 91с7.fbx");
+        //Лубянский15с2 = MainScript.Load3dObjectByPathViaTriLib(@"C:\Users\79100\Downloads\City-scene-editor-main\3D_sorces\fbx\Лубянский проезд, 15с2.obj");
 
 
 
@@ -177,23 +167,66 @@ public class TimeMachine : MonoBehaviour
         {
 
             ExName = xls.Tables[0].GetCell(i, 1).Value.ToString();
-
             ExYear = Convert.ToInt32(xls.Tables[0].GetCell(i, 2).Value.ToString());
             ExShirota = float.Parse(xls.Tables[0].GetCell(i, 3).Value.ToString());
             ExDolgota = float.Parse(xls.Tables[0].GetCell(i, 4).Value.ToString());
-            string pathToObj;
-            pathToObj = pathtoexcel.Replace(Path.GetFileName(pathtoexcel), "") + ExName + ".obj";
+            ExMaterial = Convert.ToInt32(xls.Tables[0].GetCell(i, 5).Value.ToString());
+            string pathToObj = pathtoexcel.Replace(Path.GetFileName(pathtoexcel), "") + ExName + ".obj";
             Debug.Log(pathToObj);
+
+            Directory.CreateDirectory(Application.streamingAssetsPath + "/Streaming/");
+            File.Copy(pathToObj, Application.streamingAssetsPath + "/Streaming/" + Path.GetFileName(pathToObj), true);
+            if (File.Exists(pathToObj.Replace(Path.GetExtension(pathToObj), ".mtl")))
+            {
+                File.Copy(pathToObj.Replace(Path.GetExtension(pathToObj), ".mtl"), Application.streamingAssetsPath + "/Streaming/" + Path.GetFileName(pathToObj.Replace(Path.GetExtension(pathToObj), ".mtl")), true);
+            }
+
             obj = MainScript.Load3dObjectByPathViaTriLib(pathToObj);
+            MainScript.OptimizeGameObject(obj);
             House house = obj.AddComponent<House>();
+            MeshRenderer rd = obj.transform.GetChild(0).GetComponent<MeshRenderer>();
+
+            switch (ExMaterial)
+            {
+                case 1:
+                    rd.material = one;
+                    break;
+                case 2:
+                    rd.material = two;
+                    break;
+                case 3:
+                    rd.material = three;
+                    break;
+                case 4:
+                    rd.material = four;
+                    break;
+                case 5:
+                    rd.material = five;
+                    break;
+                case 6:
+                    rd.material = six;
+                    break;
+                case 7:
+                    rd.material = seven;
+                    break;
+            }
             house.gameObject.SetActive(false);
             house.Year = ExYear;
-            AddToChange(obj);
 
-            obj.transform.position = MapController.FromRealPosition(new Vector3((float)ExShirota, 300f, (float)ExDolgota));
+
+            obj.transform.position = MapController.FromRealPosition(new Vector3((float)ExShirota, MapController.instance.abstractMap.QueryElevationInMetersAt(new Vector2d(ExShirota, ExDolgota)) * MapController.YScale, (float)ExDolgota));
             //house.gameObject.transform.position = house.Position;
             obj.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-            Buildings.Add(house);
+            DifferentThings.allRealObjects.Add(obj);
+
+            DifferentThings.Objects.Add(new ObjectOfConstructor(
+                MapController.GetRealPosition(obj.transform.position),
+                obj.transform.rotation,
+                Path.GetFileName(pathToObj),
+                obj.transform.localScale.x,
+                "",
+                house.Year));
+            Houses.Add(house);
             Debug.Log(i);
 
             //Buildings[i].Year = ExYear;
@@ -212,29 +245,15 @@ public class TimeMachine : MonoBehaviour
         }
 
     }
-    public void AddToChange(GameObject usedObject)
-    {
-
-        //usedObject.transform.position = person.transform.position;
-        MainScript.OptimizeGameObject(usedObject);
-        DifferentThings.allRealObjects.Add(usedObject);
-
-        DifferentThings.Objects.Add(new ObjectOfConstructor(
-            MapController.GetRealPosition(usedObject.transform.position),
-            usedObject.transform.rotation,
-            usedObject.name,
-            usedObject.transform.localScale.x,
-            ""));
-    }
 
     public void InstantiateOnData()
     {
 
-        foreach (House h in Buildings)
+        foreach (House h in Houses)
         {
             h.gameObject.SetActive(false);
         }
-        foreach (House h in Buildings)
+        foreach (House h in Houses)
         {
 
             if (int.Parse(sliderValue.text) >= h.Year)
@@ -282,7 +301,7 @@ public class TimeMachine : MonoBehaviour
         float y = 300;
         float z = 37.63227f;
         Vector3 temp = new Vector3(x, y, z);
-        for (int j = 0; j < Buildings.Count; j++)
+        for (int j = 0; j < Houses.Count; j++)
         {
             //Buildings[j].Position = MapController.FromRealPosition(temp);
             //Buildings[j].gameObject.transform.position = Buildings[j].Position;

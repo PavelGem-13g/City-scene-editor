@@ -79,7 +79,7 @@ public class MainScript : MonoBehaviour
     /// <returns></returns>
     IEnumerator SpawnCoroutine()
     {
-        FileBrowser.SetFilters(false, ".obj", ".fbx", ".stl", ".3ds",".blend");
+        FileBrowser.SetFilters(false, ".obj", ".fbx", ".stl");
         yield return FileBrowser.WaitForLoadDialog(FileBrowser.PickMode.FilesAndFolders, false, null, null, "Spawn object", "Spawn");
         if (FileBrowser.Success)
         {
@@ -95,7 +95,8 @@ public class MainScript : MonoBehaviour
             usedObject = Load3dObjectByPathViaTriLib(nameOfFile);
             OptimizeGameObject(usedObject);
             usedObject.transform.position = person.transform.position;
-
+            usedObject.GetComponent<House>().Year = 2021;
+            TimeMachine.instance.Houses.Add(usedObject.GetComponent<House>());
             DifferentThings.allRealObjects.Add(usedObject);
 
             DifferentThings.Objects.Add(new ObjectOfConstructor(
@@ -103,7 +104,8 @@ public class MainScript : MonoBehaviour
                 usedObject.transform.rotation,
                 Path.GetFileName(nameOfFile),
                 usedObject.transform.localScale.x,
-                ""));
+                "",
+                2021));
         }
     }
 
@@ -122,7 +124,7 @@ public class MainScript : MonoBehaviour
         {
             oprimizingObject.transform.GetChild(i).gameObject.AddComponent<MeshCollider>();
         }
-
+        oprimizingObject.AddComponent<House>();
         oprimizingObject.AddComponent<MeshCollider>();
         oprimizingObject.AddComponent<Building>();
     }
@@ -184,6 +186,9 @@ public class MainScript : MonoBehaviour
                 usedObject = Load3dObjectByPathViaTriLib(Application.streamingAssetsPath + "/Streaming/" + loadedObject.nameOfModel);
                 OptimizeGameObject(usedObject);
 
+                usedObject.GetComponent<House>().Year = loadedObject.year;
+                TimeMachine.instance.Houses.Add(usedObject.GetComponent<House>());
+
                 usedObject.transform.position = MapController.FromRealPosition(loadedObject.position.ToVector3());
                 usedObject.transform.localScale = new Vector3(loadedObject.size, loadedObject.size, loadedObject.size);
                 usedObject.transform.rotation = loadedObject.rotation.ToQuaternion();
@@ -229,6 +234,8 @@ public class MainScript : MonoBehaviour
         RoadEditor.instance.ClearAllRoads();
         DifferentThings.Objects.Clear();
         DifferentThings.Roads.Clear();
+
+        TimeMachine.instance.Houses.Clear();
 
         description.text = null;
 

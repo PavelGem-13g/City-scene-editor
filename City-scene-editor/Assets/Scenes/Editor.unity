@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: eca3c00ef1cc6ce45bfade23ebc4ab1e, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 71385bd7edd6ccf43b48af524671a535, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.50971764, g: 0.5598944, b: 0.603347, a: 1}
+  m_IndirectSpecularColor: {r: 0.6316041, g: 0.57693416, b: 0.5247114, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4067,7 +4067,7 @@ GameObject:
   - component: {fileID: 1761316874}
   - component: {fileID: 1761316876}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: TimeMacine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4115,25 +4115,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sliderValue: {fileID: 106426159}
   person: {fileID: 0}
-  "\u0421\u043F\u0430\u0441\u043E\u0433\u043B\u0438\u043D\u0438\u0449\u0435\u0432\u0441\u043A\u0438\u04399": {fileID: 0}
-  "\u041B\u0443\u0431\u044F\u043D\u0441\u043A\u0438\u043915\u04412": {fileID: 0}
-  "\u041B\u0443\u0431\u044F\u043D\u0441\u043A\u0438\u043919\u04411": {fileID: 0}
-  "\u041B\u0443\u0431\u044F\u043D\u0441\u043A\u0438\u043921\u04415": {fileID: 0}
-  "\u041B\u0443\u0431\u044F\u043D\u0441\u043A\u0438\u043925\u04412": {fileID: 0}
-  "\u041B\u0443\u0431\u044F\u043D\u0441\u043A\u0438\u0439271\u04411": {fileID: 0}
-  "\u041C\u0430\u0440\u043E\u0441\u0435\u0439\u043A\u0430215\u04411": {fileID: 0}
-  "\u041C\u0430\u0440\u043E\u0441\u0435\u0439\u043A\u043042\u04411": {fileID: 0}
-  "\u041C\u0430\u0440\u043E\u0441\u0435\u0439\u043A\u043068\u04411": {fileID: 0}
-  "\u041C\u0430\u0440\u043E\u0441\u0435\u0439\u043A\u04308": {fileID: 0}
-  "\u041F\u043E\u043A\u0440\u043E\u0432\u0441\u043A\u0438\u04391610\u04411": {fileID: 0}
-  "\u041F\u043E\u043A\u0440\u043E\u0432\u0441\u043A\u0438\u04391815": {fileID: 0}
-  "\u041F\u043E\u043A\u0440\u043E\u0432\u0441\u043A\u0438\u04391618\u044144\u0410": {fileID: 0}
-  "\u042F\u0443\u0437\u0441\u043A\u0438\u043910\u04412": {fileID: 0}
-  "\u0421\u043F\u0430\u0441\u043E\u0433\u043B\u0438\u043D\u0438\u0449\u0435\u0432\u0441\u043A\u0438\u04393\u04411": {fileID: 0}
-  "\u0421\u043F\u0430\u0441\u043E\u0433\u043B\u0438\u043D\u0438\u0449\u0435\u0432\u0441\u043A\u0438\u043991\u044110": {fileID: 0}
-  "\u0421\u043F\u0430\u0441\u043E\u0433\u043B\u0438\u043D\u0438\u0449\u0435\u0432\u0441\u043A\u0438\u043991\u044116": {fileID: 0}
-  "\u0421\u043F\u0430\u0441\u043E\u0433\u043B\u0438\u043D\u0438\u0449\u0435\u0432\u0441\u043A\u0438\u043912\u04415": {fileID: 0}
-  Buildings: []
+  Houses: []
+  one: {fileID: 2100000, guid: 9b850ea990816c144aae3be814663f31, type: 2}
+  two: {fileID: 2100000, guid: 6f6afe5509976de40960257b4c93637a, type: 2}
+  three: {fileID: 2100000, guid: 9e5c88d43bf1c8f4492eef77154cf8c0, type: 2}
+  four: {fileID: 2100000, guid: 355c587253911d94797a1cfa8d2c4548, type: 2}
+  five: {fileID: 2100000, guid: d77ff4791a1f39e43a4310dcb911fd0b, type: 2}
+  six: {fileID: 2100000, guid: 747431ea5e8019449aedc929ea0a66c5, type: 2}
+  seven: {fileID: 2100000, guid: 9f3499b20a07a6e4a85d7f4dc6176826, type: 2}
 --- !u!1 &1848412181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6110370879877962406, guid: 3f1a25fc4d1886644ba72973e7837fbf,
