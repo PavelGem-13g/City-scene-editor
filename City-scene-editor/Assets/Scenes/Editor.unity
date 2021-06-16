@@ -574,49 +574,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357641568}
   m_CullTransparentMesh: 0
---- !u!1 &372383288
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 372383289}
-  - component: {fileID: 372383290}
-  m_Layer: 0
-  m_Name: Selenium
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &372383289
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 372383288}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 408.63116, y: 88.81405, z: -35.81015}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &372383290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 372383288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fdcf100356b3ae45a2bb72b7f7de565, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &430390361
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +933,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &715207114
 GameObject:
@@ -1843,7 +1800,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 372383290}
+      objectReference: {fileID: 0}
     - target: {fileID: 4577517319112363834, guid: 3f1a25fc4d1886644ba72973e7837fbf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
@@ -3596,7 +3553,7 @@ Transform:
   - {fileID: 1197144446}
   - {fileID: 1232307230}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1039962799
 MonoBehaviour:
@@ -4142,7 +4099,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1761316876
 MonoBehaviour:
@@ -4157,7 +4114,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderValue: {fileID: 106426159}
+  person: {fileID: 0}
   "\u0421\u043F\u0430\u0441\u043E\u0433\u043B\u0438\u043D\u0438\u0449\u0435\u0432\u0441\u043A\u0438\u04399": {fileID: 0}
+  "\u041B\u0443\u0431\u044F\u043D\u0441\u043A\u0438\u043915\u04412": {fileID: 0}
+  "\u041B\u0443\u0431\u044F\u043D\u0441\u043A\u0438\u043919\u04411": {fileID: 0}
+  "\u041B\u0443\u0431\u044F\u043D\u0441\u043A\u0438\u043921\u04415": {fileID: 0}
+  "\u041B\u0443\u0431\u044F\u043D\u0441\u043A\u0438\u043925\u04412": {fileID: 0}
+  "\u041B\u0443\u0431\u044F\u043D\u0441\u043A\u0438\u0439271\u04411": {fileID: 0}
+  "\u041C\u0430\u0440\u043E\u0441\u0435\u0439\u043A\u0430215\u04411": {fileID: 0}
+  "\u041C\u0430\u0440\u043E\u0441\u0435\u0439\u043A\u043042\u04411": {fileID: 0}
+  "\u041C\u0430\u0440\u043E\u0441\u0435\u0439\u043A\u043068\u04411": {fileID: 0}
+  "\u041C\u0430\u0440\u043E\u0441\u0435\u0439\u043A\u04308": {fileID: 0}
+  "\u041F\u043E\u043A\u0440\u043E\u0432\u0441\u043A\u0438\u04391610\u04411": {fileID: 0}
+  "\u041F\u043E\u043A\u0440\u043E\u0432\u0441\u043A\u0438\u04391815": {fileID: 0}
+  "\u041F\u043E\u043A\u0440\u043E\u0432\u0441\u043A\u0438\u04391618\u044144\u0410": {fileID: 0}
+  "\u042F\u0443\u0437\u0441\u043A\u0438\u043910\u04412": {fileID: 0}
+  "\u0421\u043F\u0430\u0441\u043E\u0433\u043B\u0438\u043D\u0438\u0449\u0435\u0432\u0441\u043A\u0438\u04393\u04411": {fileID: 0}
+  "\u0421\u043F\u0430\u0441\u043E\u0433\u043B\u0438\u043D\u0438\u0449\u0435\u0432\u0441\u043A\u0438\u043991\u044110": {fileID: 0}
+  "\u0421\u043F\u0430\u0441\u043E\u0433\u043B\u0438\u043D\u0438\u0449\u0435\u0432\u0441\u043A\u0438\u043991\u044116": {fileID: 0}
+  "\u0421\u043F\u0430\u0441\u043E\u0433\u043B\u0438\u043D\u0438\u0449\u0435\u0432\u0441\u043A\u0438\u043912\u04415": {fileID: 0}
   Buildings: []
 --- !u!1 &1848412181 stripped
 GameObject:

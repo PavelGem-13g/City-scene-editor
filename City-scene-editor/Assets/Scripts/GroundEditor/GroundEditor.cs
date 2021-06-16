@@ -121,6 +121,10 @@ public class GroundEditor : MonoBehaviour
 
         foreach (var item in lines)
         {
+            Debug.Log(MapController.GetRealPosition( new Vector3(
+                    (bounds.x * item.StartPosition.x / sizeX),
+                    MapController.instance.abstractMap.QueryElevationInUnityUnitsAt(MapController.instance.abstractMap.WorldToGeoPosition(new Vector3((bounds.x * item.StartPosition.x / sizeX), 0, (bounds.y * item.StartPosition.y / sizeY)))),
+                    bounds.y * item.StartPosition.y / sizeY)));
             RoadEditor.instance.BuildRoad(
                 MapController.GetRealPosition( new Vector3(
                     (bounds.x * item.StartPosition.x / sizeX),

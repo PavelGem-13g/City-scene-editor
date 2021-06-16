@@ -7,12 +7,18 @@ public class House : MonoBehaviour
     public GameObject a;
     GameObject zxcqwe;
     int year;
-    Vector3 xyz;
+    string name;
+    [SerializeField] Vector3 xyz;
 
-    public void Init(int Year, Vector3 Xyz)
+    public void Init(Vector3 Xyz, string NAME)
     {
-        year = Year;
         xyz = Xyz;
+        name = NAME;
+    }
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
     }
     public House(GameObject house)
     {
@@ -27,6 +33,7 @@ public class House : MonoBehaviour
         get { return year; }
         set { year = value; }
     }
+    
     public Vector3 Position
     {
         get { return xyz; }
