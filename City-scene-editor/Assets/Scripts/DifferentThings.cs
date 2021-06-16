@@ -49,11 +49,12 @@ namespace MyOwnClass
         public string description;
         public string streetName;
         public int year;
+        public int color;
         public ObjectOfConstructor()
         {
 
         }
-        public ObjectOfConstructor(Vector3 position, Quaternion rotation, string nameOfModel, float size, string description, int year)
+        public ObjectOfConstructor(Vector3 position, Quaternion rotation, string nameOfModel, float size, string description, int year, int color)
         {
             this.position = new SerializableVector3(position);
             this.rotation = new SerializableQuaternion(rotation);
@@ -61,6 +62,7 @@ namespace MyOwnClass
             this.size = size;
             this.description = description;
             this.year = year;
+            this.color = color;
         }
     }
     [Serializable]

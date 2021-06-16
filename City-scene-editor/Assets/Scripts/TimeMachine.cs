@@ -23,8 +23,12 @@ public class TimeMachine : MonoBehaviour
     string pathtoexcel;
     string ExName;
     float ExShirota;
+    float ExHight;
     float ExDolgota;
-    float ExMaterial;
+    int ExMaterial;
+    float ExRotation1;
+    float ExRotation2;
+    float ExRotation3;
     public List<House> Houses = new List<House>();
 
     public Material one;
@@ -34,128 +38,10 @@ public class TimeMachine : MonoBehaviour
     public Material five;
     public Material six;
     public Material seven;
-    public void OK()
-    {
-/*        House house = Спасоглинищевский9.AddComponent<House>();
-        house.Init(Vector3.zero, "Большой Спасоглинищевский пер, 91с7");
-        house.gameObject.SetActive(false);
-        Buildings.Add(house); //0
 
-        House house1 = Лубянский15с2.AddComponent<House>();
-        house1.Init(Vector3.zero, "Лубянский проезд, 15с2-4");
-        house1.gameObject.SetActive(false);
-        Buildings.Add(house1);
-        AddToChange(Лубянский15с2); //1*/
-
-        //house = Лубянский19с1.AddComponent<House>();
-        //house.Init(1860, Vector3.zero, "Лубянский проезд, 19с1");
-        //house.gameObject.SetActive(false);
-        //Buildings.Add(house);
-        //AddToChange(Лубянский19с1);
-
-        //house = Лубянский21с5.AddComponent<House>();
-        //house.Init(1820, Vector3.zero, "Лубянский проезд, 21с5");
-        //house.gameObject.SetActive(false);
-        //Buildings.Add(house);
-        //AddToChange(Лубянский21с5);
-
-        //house = Лубянский25с2.AddComponent<House>();
-        //house.Init(1860, Vector3.zero, "Лубянский проезд, 25с2");
-        //house.gameObject.SetActive(false);
-        //Buildings.Add(house);
-        //AddToChange(Лубянский25с2);
-
-        //house = Лубянский271с1.AddComponent<House>();
-        //house.Init(1850, Vector3.zero, "Лубянский проезд, 27/1с1");
-        //house.gameObject.SetActive(false);
-        //Buildings.Add(house);
-        //AddToChange(Лубянский271с1);
-
-        //house = Маросейка215с1.AddComponent<House>();
-        //house.Init(1850, Vector3.zero, "Маросейка, ул., 2 / 15с1");
-        //house.gameObject.SetActive(false);
-        //Buildings.Add(house);
-        //AddToChange(Маросейка215с1);
-
-        //house = Маросейка42с1.AddComponent<House>();
-        //house.Init(1850, Vector3.zero, "Маросейка, ул., 4 / 2с1");
-        //house.gameObject.SetActive(false);
-        //Buildings.Add(house);
-        //AddToChange(Маросейка42с1);
-
-        //house = Маросейка68с1.AddComponent<House>();
-        //house.Init(1830, Vector3.zero, "Маросейка, ул., 6-8с1");
-        //house.gameObject.SetActive(false);
-        //Buildings.Add(house);
-        //AddToChange(Маросейка68с1);
-
-
-        //house = Маросейка8.AddComponent<House>();
-        //house.Init(1830, Vector3.zero, "Маросейка, ул., 8");
-        //house.gameObject.SetActive(false);
-        //Buildings.Add(house);
-        //AddToChange(Маросейка8);
-
-        //house = Покровский1610с1.AddComponent<House>();
-        //house.Init(1860, Vector3.zero, "Маросейка, ул., 8");
-        //house.gameObject.SetActive(false);
-        //Buildings.Add(house);
-        //AddToChange(Покровский1610с1);
-
-        //house = Покровский1815.AddComponent<House>();
-        //house.Init(1860, Vector3.zero, "Маросейка, ул., 8");
-        //house.gameObject.SetActive(false);
-        //Buildings.Add(house);
-        //AddToChange(Покровский1815);
-
-        //house = Покровский1618с44А.AddComponent<House>();
-        //house.Init(1860, Vector3.zero, "Маросейка, ул., 8");
-        //house.gameObject.SetActive(false);
-        //Buildings.Add(house);
-        //AddToChange(Покровский1618с44А);
-
-        //house = Яузский10с2.AddComponent<House>();
-        //house.Init(1860, Vector3.zero, "Маросейка, ул., 8");
-        //house.gameObject.SetActive(false);
-        //Buildings.Add(house);
-        //AddToChange(Яузский10с2);
-
-        //house = Спасоглинищевский3с1.AddComponent<House>();
-        //house.Init(1820, Vector3.zero, "Маросейка, ул., 8");
-        //house.gameObject.SetActive(false);
-        //Buildings.Add(house);
-        //AddToChange(Спасоглинищевский3с1);
-
-        //house = Спасоглинищевский91с10.AddComponent<House>();
-        //house.Init(1840, Vector3.zero, "Маросейка, ул., 8");
-        //house.gameObject.SetActive(false);
-        //Buildings.Add(house);
-        //AddToChange(Спасоглинищевский91с10);
-
-        //house = Спасоглинищевский91с16.AddComponent<House>();
-        //house.Init(1840, Vector3.zero, "Маросейка, ул., 8");
-        //house.gameObject.SetActive(false);
-        //Buildings.Add(house);
-        //AddToChange(Спасоглинищевский91с16);
-
-        //house = Спасоглинищевский12с5.AddComponent<House>();
-        //house.Init(1860, Vector3.zero, "Маросейка, ул., 8");
-        //house.gameObject.SetActive(false);
-        //Buildings.Add(house);
-        //AddToChange(Спасоглинищевский12с5);
-
-    }
     public void Awake()
     {
         instance = this;
-        //Buildings.Clear();
-        //Спасоглинищевский9 = MainScript.Load3dObjectByPathViaTriLib(@"C:\Users\79100\Downloads\City-scene-editor-main\3D_sorces\fbx\Большой Спасоглинищевский пер, 91с7.fbx");
-        //Лубянский15с2 = MainScript.Load3dObjectByPathViaTriLib(@"C:\Users\79100\Downloads\City-scene-editor-main\3D_sorces\fbx\Лубянский проезд, 15с2.obj");
-
-
-
-
-
     }
     public void OpenFromExcel()
     {
@@ -171,6 +57,11 @@ public class TimeMachine : MonoBehaviour
             ExShirota = float.Parse(xls.Tables[0].GetCell(i, 3).Value.ToString());
             ExDolgota = float.Parse(xls.Tables[0].GetCell(i, 4).Value.ToString());
             ExMaterial = Convert.ToInt32(xls.Tables[0].GetCell(i, 5).Value.ToString());
+            ExHight = float.Parse(xls.Tables[0].GetCell(i, 6).Value.ToString());
+            ExRotation1 = float.Parse(xls.Tables[0].GetCell(i, 7).Value.ToString());
+            ExRotation2 = float.Parse(xls.Tables[0].GetCell(i, 8).Value.ToString());
+            ExRotation3 = float.Parse(xls.Tables[0].GetCell(i, 9).Value.ToString());
+
             string pathToObj = pathtoexcel.Replace(Path.GetFileName(pathtoexcel), "") + ExName + ".obj";
             Debug.Log(pathToObj);
 
@@ -188,6 +79,8 @@ public class TimeMachine : MonoBehaviour
 
             switch (ExMaterial)
             {
+                case 0:
+                    break;
                 case 1:
                     rd.material = one;
                     break;
@@ -214,8 +107,8 @@ public class TimeMachine : MonoBehaviour
             house.Year = ExYear;
 
 
-            obj.transform.position = MapController.FromRealPosition(new Vector3((float)ExShirota, MapController.instance.abstractMap.QueryElevationInMetersAt(new Vector2d(ExShirota, ExDolgota)) * MapController.YScale, (float)ExDolgota));
-            //house.gameObject.transform.position = house.Position;
+            obj.transform.position = MapController.FromRealPosition(new Vector3((float)ExShirota, ExHight, (float)ExDolgota));
+            obj.transform.Rotate(ExRotation1, ExRotation2, ExRotation3, Space.Self); ;
             obj.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
             DifferentThings.allRealObjects.Add(obj);
 
@@ -225,23 +118,10 @@ public class TimeMachine : MonoBehaviour
                 Path.GetFileName(pathToObj),
                 obj.transform.localScale.x,
                 "",
-                house.Year));
+                house.Year,
+                ExMaterial));
             Houses.Add(house);
             Debug.Log(i);
-
-            //Buildings[i].Year = ExYear;
-            //Buildings[i].Position = MapController.FromRealPosition(new Vector3(ExShirota, 300f, ExDolgota));
-            //Buildings[i].gameObject.transform.position = Buildings[i].Position;
-            //Debug.Log(Buildings[i].Name);
-            //for (int j = 0; j < Buildings.Count; j++)
-            //{
-            //    if(ExName == Buildings[j].Name)
-            //    {
-            //        Buildings[j].Year = ExYear;
-            //        Buildings[j].Position = MapController.FromRealPosition(new Vector3(ExShirota, 300f, ExDolgota));
-            //    }
-            //}
-
         }
 
     }

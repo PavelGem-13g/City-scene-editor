@@ -105,7 +105,8 @@ public class MainScript : MonoBehaviour
                 Path.GetFileName(nameOfFile),
                 usedObject.transform.localScale.x,
                 "",
-                2021));
+                2021,
+                0));
         }
     }
 
@@ -192,6 +193,34 @@ public class MainScript : MonoBehaviour
                 usedObject.transform.position = MapController.FromRealPosition(loadedObject.position.ToVector3());
                 usedObject.transform.localScale = new Vector3(loadedObject.size, loadedObject.size, loadedObject.size);
                 usedObject.transform.rotation = loadedObject.rotation.ToQuaternion();
+
+                MeshRenderer rd = usedObject.transform.GetChild(0).GetComponent<MeshRenderer>();
+                switch (loadedObject.color)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        rd.material = TimeMachine.instance.one;
+                        break;
+                    case 2:
+                        rd.material = TimeMachine.instance.two;
+                        break;
+                    case 3:
+                        rd.material = TimeMachine.instance.three;
+                        break;
+                    case 4:
+                        rd.material = TimeMachine.instance.four;
+                        break;
+                    case 5:
+                        rd.material = TimeMachine.instance.five;
+                        break;
+                    case 6:
+                        rd.material = TimeMachine.instance.six;
+                        break;
+                    case 7:
+                        rd.material = TimeMachine.instance.seven;
+                        break;
+                }
 
                 usedObject.GetComponent<Building>().description = loadedObject.description;
 
