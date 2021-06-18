@@ -417,7 +417,9 @@ public class MainScript : MonoBehaviour
 
 
         //Удаление объекта
-        if (Input.GetKeyDown(KeyCode.Delete))
+        if (Input.GetKeyDown(KeyCode.Delete)
+            && DifferentThings.numberOfActiveObject != DifferentThings.allRealObjects.Count
+            && DifferentThings.allRealObjects.Contains(DifferentThings.allRealObjects[DifferentThings.numberOfActiveObject]) )
         {
             Destroy(DifferentThings.allRealObjects[DifferentThings.numberOfActiveObject]);
             DifferentThings.allRealObjects.RemoveAt(DifferentThings.numberOfActiveObject);
@@ -427,6 +429,7 @@ public class MainScript : MonoBehaviour
             //GameObject.FindGameObjectWithTag("AllArrows").transform.localScale = new Vector3(0, 0, 0);
             //GameObject.FindGameObjectWithTag("ArrowsOfRotation").transform.localScale = new Vector3(0, 0, 0);
             description.text = "";
+            DifferentThings.numberOfActiveObject = DifferentThings.allRealObjects.Count;
             //GameObject.Find("Panel").transform.localScale = new Vector3(0, 0, 0);
             //GameObject.Find("Оси").transform.localScale = new Vector3(0f, 0f, 0f); //прячем ручной ввод координат
         }

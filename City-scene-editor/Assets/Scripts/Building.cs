@@ -12,8 +12,7 @@ public class Building : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         ArrowsController.instance.activeObject = this;
-        if (gameObject != DifferentThings.allRealObjects[DifferentThings.numberOfActiveObject])
-        {
+
             for (int i = 0; i < DifferentThings.allRealObjects.Count; i++)
             {
                 if (DifferentThings.allRealObjects[i] == gameObject)
@@ -21,8 +20,12 @@ public class Building : MonoBehaviour, IPointerClickHandler
                     DifferentThings.numberOfActiveObject = i;
                 }
             }
-        }
         ArrowsController.instance.UseArrows();
         ArrowsController.instance.UpdateText();
+    }
+    private void OnDestroy()
+    {
+        House house = GetComponent<House>();
+        TimeMachine.instance.Houses.Remove(house);
     }
 }

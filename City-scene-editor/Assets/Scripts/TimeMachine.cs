@@ -49,7 +49,7 @@ public class TimeMachine : MonoBehaviour
 
         Excel xls = ExcelHelper.LoadExcel(pathtoexcel);
 
-        for (int i = 2; i < xls.Tables[0].NumberOfRows; i++)
+        for (int i = 2; i <= xls.Tables[0].NumberOfRows; i++)
         {
 
             ExName = xls.Tables[0].GetCell(i, 1).Value.ToString();
