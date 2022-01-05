@@ -151,7 +151,7 @@ public class MainScript : MonoBehaviour
                 formatter.Serialize(streetStream, DifferentThings.Roads);
                 streetStream.Close();
             }
-            lzip.compressDir(Application.streamingAssetsPath + "/Streaming/", 5, nameOfSavedFile);
+            //lzip.compressDir(Application.streamingAssetsPath + "/Streaming/", 5, nameOfSavedFile);
         }
     }
 
@@ -167,7 +167,7 @@ public class MainScript : MonoBehaviour
         {
             DestroyEverything();
             nameOfSavedFile = FileBrowser.Result[0];
-            lzip.decompress_File(nameOfSavedFile, Application.streamingAssetsPath + "/Streaming/");
+            //lzip.decompress_File(nameOfSavedFile, Application.streamingAssetsPath + "/Streaming/");
 
             using (FileStream streetStream = new FileStream(Application.streamingAssetsPath + "/Streaming/" + "settings.information", FileMode.OpenOrCreate))
             {
