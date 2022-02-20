@@ -1,5 +1,6 @@
 ﻿using Mapbox.Utils;
 using MyOwnClass;
+using SFB;
 using SimpleFileBrowser;
 using System;
 using System.Collections;
@@ -72,6 +73,8 @@ public class MainScript : MonoBehaviour
         {
             Directory.CreateDirectory(Application.streamingAssetsPath + "/Streaming/");
         }
+
+        Application.targetFrameRate = 60;
     }
     /// <summary>
     /// Куратина загрузки объектов расширения
@@ -79,6 +82,7 @@ public class MainScript : MonoBehaviour
     /// <returns></returns>
     IEnumerator SpawnCoroutine()
     {
+
         FileBrowser.SetFilters(false, ".obj", ".fbx", ".stl");
         yield return FileBrowser.WaitForLoadDialog(FileBrowser.PickMode.FilesAndFolders, false, null, null, "Spawn object", "Spawn");
         if (FileBrowser.Success)
@@ -121,13 +125,21 @@ public class MainScript : MonoBehaviour
     public static void OptimizeGameObject(GameObject oprimizingObject)
     {
         oprimizingObject.transform.parent = instance.map.transform;
-        for (int i = 0; i < oprimizingObject.transform.childCount; i++)
-        {
-            oprimizingObject.transform.GetChild(i).gameObject.AddComponent<MeshCollider>();
-        }
+        SetChildrenMeshColliders(oprimizingObject);
         oprimizingObject.AddComponent<House>();
         oprimizingObject.AddComponent<MeshCollider>();
         oprimizingObject.AddComponent<Building>();
+    }
+    static void SetChildrenMeshColliders(GameObject gameObject) 
+    {
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            SetChildrenMeshColliders(gameObject.transform.GetChild(i).gameObject);
+        }
+        if (gameObject.GetComponent<MeshRenderer>()) 
+        {
+            gameObject.AddComponent<MeshCollider>();        
+        }
     }
     public void ChangeDescription()
     {
