@@ -62,10 +62,21 @@ public class TimeMachine : MonoBehaviour
             ExRotation2 = float.Parse(xls.Tables[0].GetCell(i, 8).Value.ToString());
             ExRotation3 = float.Parse(xls.Tables[0].GetCell(i, 9).Value.ToString());
 
-            string pathToObj = pathtoexcel.Replace(Path.GetFileName(pathtoexcel), "") + ExName + ".obj";
+            string pathToObj = pathtoexcel.Replace(Path.GetFileName(pathtoexcel), "");
+            if (File.Exists(pathToObj + ExName + ".obj"))
+            {
+                pathToObj = pathToObj + ExName + ".obj";
+            }
+            if (File.Exists(pathToObj + ExName + ".fbx"))
+            {
+                pathToObj = pathToObj + ExName + ".fbx";
+            }
+            if (File.Exists(pathToObj + ExName + ".stl"))
+            {
+                pathToObj = pathToObj + ExName + ".stl";
+            }
             Debug.Log(pathToObj);
 
-            Directory.CreateDirectory(Application.streamingAssetsPath + "/Streaming/");
             File.Copy(pathToObj, Application.streamingAssetsPath + "/Streaming/" + Path.GetFileName(pathToObj), true);
             if (File.Exists(pathToObj.Replace(Path.GetExtension(pathToObj), ".mtl")))
             {
