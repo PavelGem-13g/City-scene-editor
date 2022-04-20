@@ -246,6 +246,7 @@ public class MainScript : MonoBehaviour
             }
 
             MapController.instance.abstractMap.gameObject.transform.localScale = new Vector3(tempScaleX, tempScaleY, tempScaleX);
+            TimeMachine.instance.InstantiateOnData();
         }
     }
     public static GameObject Load3dObjectByPathViaTriLib(string path)
